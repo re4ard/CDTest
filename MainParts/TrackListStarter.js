@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 const path = require('path');
 
 // Path to the Python script (with spaces in the path)
-const scriptPath = 'C:\\Users\\Priyanshu Bhowmik\\Desktop\\electronCDAPP\\CDMusicPlayer\\MainParts\\TracksList.py';
+const scriptPath = '/home/priyanshu/ECD/MainParts/TracksList.py';
 
 // Command to execute the Python script
 const command = `python "${scriptPath}"`;

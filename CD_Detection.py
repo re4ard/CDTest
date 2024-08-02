@@ -4,16 +4,13 @@ import os
 import sys
 
 def check_cd():
+    cdrom_path = '/media/priyanshu/testformp3'  # Change this path as necessary
     try:
-        # Use appropriate command to check for CD presence on D drive
-        result = subprocess.run(['wmic', 'logicaldisk', 'where', 'DriveType=5', 'get', 'DeviceID'], stdout=subprocess.PIPE, check=True)
-        cd_info = result.stdout.decode('utf-8')
-        
-        # If 'D:' drive is found, check if it contains any files
-        if 'D:' in cd_info:
+        # Check if the mount point exists and is a directory
+        if os.path.ismount(cdrom_path):
             try:
-                # Check if there are any files in the D drive
-                if os.listdir('D:\\'):
+                # Check if there are any files in the cdrom directory
+                if os.listdir(cdrom_path):
                     print("CD Detected with files", flush=True)
                     sys.stdout.flush()  # Flush stdout buffer
                     return True  # CD and files detected
@@ -22,19 +19,15 @@ def check_cd():
                     sys.stdout.flush()  # Flush stdout buffer
                     return False  # CD detected but no files
             except PermissionError as e:
-                print("Permission error: D drive not ready or accessible", flush=True)
+                print("Permission error: CD drive not ready or accessible", flush=True)
                 sys.stdout.flush()  # Flush stdout buffer
-                return False  # CD detected but D drive not ready
+                return False  # CD detected but CD drive not ready
         else:
             print("No CD Detected", flush=True)
             sys.stdout.flush()  # Flush stdout buffer
             return False  # No CD detected
     except FileNotFoundError:
-        print("wmic command not found. Ensure it is available in your PATH.", flush=True)
-        sys.stdout.flush()
-        return False
-    except subprocess.CalledProcessError as e:
-        print(f"Command 'wmic' failed with error: {e}", flush=True)
+        print("Mount point not found. Ensure the CD drive is properly mounted.", flush=True)
         sys.stdout.flush()
         return False
 
