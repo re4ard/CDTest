@@ -96,7 +96,7 @@ body {
     width: 800px;
     height: 480px;
     background-color: rgba(0, 0, 0, 0.00);
-    backdrop-filter: blur(130px);
+    backdrop-filter: blur(300px);
     position: absolute;
     top: 0;
     left: 0;
