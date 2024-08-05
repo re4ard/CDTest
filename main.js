@@ -9,7 +9,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 480,
-    fullscreen: true,
+//  fullscreen: true,
     frame: false,
 	  alwaysOnTop: true,
     webPreferences: {
@@ -19,7 +19,6 @@ function createWindow() {
   });
 
   mainWindow.loadFile('start.html');
-
   mainWindow.on('closed', function () {
     mainWindow = null;
   });

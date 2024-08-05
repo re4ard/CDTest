@@ -2,7 +2,7 @@ import os
 import shutil
 
 # Path to the D: drive
-drive_path = "D:\\"
+drive_path = "/media/priyanshu/testformp3/"
 
 # List of MP3 file names you want to check for
 target_mp3_names = [
@@ -18,7 +18,7 @@ target_mp3_names = [
 # Dictionary mapping MP3 names to the associated text file paths
 mp3_text_file_mapping = {
     "CARTITAPE.mp3": "C:\\Users\\Priyanshu Bhowmik\\Desktop\\electronCDAPP\\CDMusicPlayer\\Albums\\CARTITAPE\\tracks.json",
-    "WW.mp3": "C:\\Users\\Priyanshu Bhowmik\\Desktop\\electronCDAPP\\CDMusicPlayer\\Albums\\WW\\tracks.json",
+    "WW.mp3": "/home/priyanshu/ECDM/Albums/WW/tracks.json",
     "UTOPIA.mp3": "C:\\Users\\Priyanshu Bhowmik\\Desktop\\electronCDAPP\\CDMusicPlayer\\Albums\\UTOPIA\\tracks.json",
     "TEC.mp3": "C:\\Users\\Priyanshu Bhowmik\\Desktop\\electronCDAPP\\CDMusicPlayer\\Albums\\TEC\\tracks.json",
     "MORELIFE.mp3": "C:\\Users\\Priyanshu Bhowmik\\Desktop\\electronCDAPP\\CDMusicPlayer\\Albums\\MORELIFE\\tracks.json",
@@ -27,12 +27,12 @@ mp3_text_file_mapping = {
 }
 
 # Path to the directory where you want to move the specific text files
-move_dir = "C:\\Users\\Priyanshu Bhowmik\\Desktop\\electronCDAPP\\CDMusicPlayer\\MainParts"
+move_dir = "/home/priyanshu/ECDM/MainParts"
 
 def find_and_copy_specific_files():
     # Get a list of files in the D: drive
     files = os.listdir(drive_path)
-    
+
     # Look for the first MP3 file
     for file in files:
         if file.endswith(".mp3"):
